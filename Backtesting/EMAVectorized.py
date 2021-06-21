@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 
 
 class EMAVectorized:
-    """ Class for the vectorized backtesting of EMA-based trading strategies.
+    """ Class for the vectorized Backtesting of EMA-based trading strategies.
     """
 
     def __init__(self, data, ticker, EMA_S, EMA_L, start, end):
@@ -47,7 +47,7 @@ class EMAVectorized:
         self.data = raw
 
     def prepare_data(self):
-        """ data for strategy backtesting (strategy-specific)."""
+        """ data for strategy Backtesting (strategy-specific)."""
         data = self.data.copy()
         data["EMA_S"] = self.data.price.ewm(span=self.EMA_S).mean()
         data["EMA_L"] = self.data.price.ewm(span=self.EMA_L).mean()
