@@ -10,7 +10,7 @@ class EMATrader(BaseTrader):
             units
         )
 
-        self.EMA_S = EMA_E
+        self.EMA_S = EMA_S
         self.EMA_L = EMA_L
 
     def define_strategy(self):  # "strategy-specific"
