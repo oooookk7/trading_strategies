@@ -17,8 +17,8 @@ class EMATrader(BaseTrader):
         df = self.raw_data.copy()
 
         # ******************** define your strategy here ************************
-        df["EMA_S"] = df[self.instrument].rolling(self.EMA_S).mean()
-        df["EMA_L"] = df[self.instrument].rolling(self.EMA_L).mean()
+        df["EMA_S"] = df[self.instrument].ewm(span=self.EMA_S).mean()
+        df["EMA_L"] = df[self.instrument].emw(span=self.EMA_L).mean()
         df["position"] = np.where(df["EMA_S"] > df["EMA_L"], 1, -1)
         # ***********************************************************************
 
